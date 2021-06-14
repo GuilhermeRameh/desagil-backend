@@ -13,22 +13,44 @@ class PlaylistTest {
 	}
 
 	@Test
-	void testRoundDownToZero() {
-		assertEquals(true, false);
+	void testRoundDownToZero() {		
+		Playlist playlist = new Playlist(0);
+		playlist.putRating("gui", 1);
+		playlist.putRating("gui2", 2);
+		playlist.putRating("gui3", 3);
+		playlist.putRating("gui4", 3);
+		double media = playlist.averageRatings();
+		assertEquals(media, 2.0);
 	}
 
 	@Test
 	void testRoundUpToHalf() {
-		assertEquals(true, false);
+		Playlist playlist = new Playlist(0);
+		playlist.putRating("gui", 1);
+		playlist.putRating("gui2", 2);
+		playlist.putRating("gui3", 1);
+		double media = playlist.averageRatings();
+		assertEquals(media, 1.5);
 	}
 
 	@Test
 	void testRoundDownToHalf() {
-		assertEquals(true, false);
+		Playlist playlist = new Playlist(0);
+		playlist.putRating("gui", 1);
+		playlist.putRating("gui2", 2);
+		playlist.putRating("gui3", 2);
+		double media = playlist.averageRatings();
+		assertEquals(media, 1.5);
 	}
 
 	@Test
 	void testRoundUpToOne() {
-		assertEquals(true, false);
+		Playlist playlist = new Playlist(0);
+		playlist.putRating("gui", 1);
+		playlist.putRating("gui2", 1);
+		playlist.putRating("gui3", 2);
+		playlist.putRating("gui4", 3);
+		double media = playlist.averageRatings();
+		assertEquals(media, 2.0);
 	}
 }
